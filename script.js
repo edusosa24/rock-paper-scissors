@@ -6,43 +6,34 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    const results = document.querySelector(".results");
-    const result = document.createElement("li");
 
     if(playerSelection == computerSelection){
         result.textContent = "It's a tie!";
-        results.appendChild(result);
         return 0;
     }
 
     if (playerSelection == "rock") {
         if (computerSelection == "scissors") {
             result.textContent = "You win! Rock beats Scissors!";
-            results.appendChild(result);
             return 1;
         } else {
             result.textContent = "You lose! Paper beats Rock";
-            results.appendChild(result);
             return -1;
         }
     } else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
             result.textContent = "You win! Paper beats Rock!";
-            results.appendChild(result);
             return 1;
         } else {
             result.textContent = "You lose! Scissors beats Paper";
-            results.appendChild(result);
             return -1;
         }
     } else {
         if (computerSelection == "paper") {
             result.textContent = "You win! Scissors beats Paper!";
-            results.appendChild(result);
             return 1;
         } else {
             result.textContent = "You lose! Rock beats Scissors!";
-            results.appendChild(result);
             return -1;
         }
     }
@@ -51,13 +42,10 @@ function playRound(playerSelection, computerSelection) {
 function restart(){
     playerWins = 0;
     cpuWins = 0;
-    const finalResult = document.querySelector(".final-result");
-    finalResult.remove();
+    enableGame();
+    result.textContent = "";
     const playAgain = document.querySelector(".play-again");
     playAgain.remove();
-    const results = document.createElement("ul");
-    results.classList.add("results");
-    showResults.appendChild(results);    
     score.textContent = "0 - 0";
 }
 
@@ -74,44 +62,55 @@ function game(playerPlay) {
     score.textContent = playerWins + " - " + cpuWins;
 
     if(playerWins == 5 || cpuWins == 5){
-        const results = document.querySelector(".results");
-        results.remove();
-        const finalResult = document.createElement("h1");
-        finalResult.classList.add("final-result");
         const playAgain = document.createElement("button");
         playAgain.classList.add("play-again");
+        playAgain.setAttribute("style", "width: 80px; height: 40px; color: black;");
+        playAgain.textContent = "Play again!"
 
         if (playerWins == 5) {        
-            finalResult.textContent = "You won!";
+            result.textContent = "You won!";
         }else if (cpuWins == 5) {
-            finalResult.textContent = "You lost!";
+            result.textContent = "You lost!";
       }
-
-      showResults.appendChild(finalResult);
+      disableGame();
       showResults.appendChild(playAgain);
 
       playAgain.addEventListener("click", () => restart());
     }
 }
 
-
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const showResults = document.querySelector(".show-results");
+const score = document.createElement("p");
+const result = document.createElement("p");
 let playerWins = 0;
 let cpuWins = 0;
 
-const showResults = document.querySelector(".show-results");
-const score = document.createElement("p");
+const rockListener = () => { game("rock"); };
+const paperListener = () => { game("paper"); };
+const scissorsListener = () => { game("scissors"); };
+
+
+score.setAttribute("style", "font-size: 50px;");
+result.setAttribute("style", "font-size: 30px; margin: 5% 0%;")
+
 score.textContent = playerWins + " - " + cpuWins;
-score.classList.add(".score");
 showResults.appendChild(score);
-const results = document.createElement("ul");
-results.classList.add("results");
-showResults.appendChild(results);
+showResults.appendChild(result);
 
-rock.addEventListener("click", () => game("rock"));
-paper.addEventListener("click", () => game("paper"));
-scissors.addEventListener("click", () => game("scissors"));
+enableGame();
 
+function enableGame(){
+    rock.addEventListener("click", rockListener);
+    paper.addEventListener("click", paperListener);
+    scissors.addEventListener("click", scissorsListener);    
+}
+
+function disableGame(){
+    rock.removeEventListener("click", rockListener);
+    paper.removeEventListener("click", paperListener);
+    scissors.removeEventListener("click", scissorsListener);
+}
 

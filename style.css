@@ -1,0 +1,61 @@
+*{
+    margin: 0%;
+    color: whitesmoke;
+}
+
+#container{
+    margin: 0%;
+    padding: 6%;
+    background-image: url("/images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    text-decoration: underline;
+    text-align: center;
+    size: 20%;
+    margin-bottom: 8%;
+}
+
+.play-zone{
+    display: flex;
+    flex-direction: column;
+}
+
+.select-play{
+    display:flex;
+    gap: 25px;
+    size: 40%;
+    margin-bottom: 8%;
+}
+
+button{
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#rock{
+    background-image: url("/images/rock.png");
+}
+
+#paper{
+    background-image: url("/images/paper.png");
+}
+
+#scissors{
+    background-image: url("/images/scissors.png");
+    background-position-y: center;
+}
+
+.show-results{
+    display: flex;
+    flex-direction: column;
+    size: 30%;
+    align-items: center;
+}
