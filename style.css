@@ -3,10 +3,18 @@
     color: whitesmoke;
 }
 
-#container{
-    margin: 0%;
-    padding: 6%;
+body{
     background-image: url("/rock-paper-scissors/images/background.jpeg");
+    /*
+        Local
+        background-image: url("/images/background.jpeg");
+    */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#container{
+    padding: 6%;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -39,6 +47,22 @@ button{
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+/*
+Local
+#rock{
+    background-image: url("/images/rock.png");
+}
+
+#paper{
+    background-image: url("/images/paper.png");
+}
+
+#scissors{
+    background-image: url("/images/scissors.png");
+    background-position-y: center;
+}
+*/
 
 #rock{
     background-image: url("/rock-paper-scissors/images/rock.png");
