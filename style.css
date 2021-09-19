@@ -6,7 +6,7 @@
 #container{
     margin: 0%;
     padding: 6%;
-    background-image: url("/images/background.jpeg");
+    background-image: url("/rock-paper-scissors/images/background.jpeg");
     background-repeat: no-repeat;
     background-size: auto;
     display: flex;
@@ -41,15 +41,15 @@ button{
 }
 
 #rock{
-    background-image: url("/images/rock.png");
+    background-image: url("/rock-paper-scissors/images/rock.png");
 }
 
 #paper{
-    background-image: url("/images/paper.png");
+    background-image: url("/rock-paper-scissors/images/paper.png");
 }
 
 #scissors{
-    background-image: url("/images/scissors.png");
+    background-image: url("/rock-paper-scissors/images/scissors.png");
     background-position-y: center;
 }
 
